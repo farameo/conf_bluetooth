@@ -1,18 +1,17 @@
-
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(10, 11); // RX, TX
+#define rx 10
+#define tx 11
+
+SoftwareSerial mySerial(rx, tx);
 
 void setup() {
-
+  
   Serial.begin(9600);
-  while (!Serial) {
-    ; 
-  }
-
-  Serial.println("Ingrese los comandos");
+  Serial.println("Listo!");
 
   mySerial.begin(38400);
+  mySerial.println("listo blueetooth");
 }
 
 void loop() { // run over and over
@@ -23,3 +22,4 @@ void loop() { // run over and over
     mySerial.write(Serial.read());
   }
 }
+
